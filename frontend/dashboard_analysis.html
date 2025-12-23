@@ -398,115 +398,100 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col-12 col-lg-4 ">
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">申请类型</h6>
-                              <p class="text-dark mb-0">本科申请</p>
+                              <p class="text-dark mb-0" id="summary_apply_type">-</p>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">目标国家</h6>
-                              <ul>
-                                <li class="text-dark mb-0">美国</li>
-                                <li class="text-dark mb-0">英国</li>
-                              </ul>
+                              <ul id="summary_target_countries"></ul>
 
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">本科目标学校</h6>
-                              <ul>
-                                <li class="text-dark mb-0">英国伦敦学院UCL</li>
-                                <li class="text-dark mb-0">墨尔本大学</li>
-                              </ul>
+                              <ul id="summary_bachelor_target_schools"></ul>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">本科目标专业</h6>
-                              <ul>
-                                <li class="text-dark mb-0">计算机科学</li>
-                                <li class="text-dark mb-0">生物科技</li>
-                              </ul>
+                              <ul id="summary_bachelor_target_majors"></ul>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">研究生目标学校</h6>
-                              <ul>
-                                <li class="text-dark mb-0">英国伦敦学院UCL</li>
-                                <li class="text-dark mb-0">墨尔本大学</li>
-                              </ul>
+                              <ul id="summary_master_target_schools"></ul>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">研究生目标专业</h6>
-                              <ul>
-                                <li class="text-dark mb-0">计算机科学</li>
-                                <li class="text-dark mb-0">生物科技</li>
-                              </ul>
+                              <ul id="summary_master_target_majors"></ul>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       <div class="col-12 col-lg-4">
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">大学经历</h6>
-                              <p class="text-dark mb-0">类型：<a>国内大学</a></p>
-                              <p class="text-dark mb-0">名称：<a>上海交通大学</a></p>
-                              <p class="text-dark mb-0">专业：<a>计算机科学</a></p>
-                              <p class="text-dark mb-0">GPA：<a>4.0</a></p>
+                              <p class="text-dark mb-0">类型：<a id="summary_undergrad_type">-</a></p>
+                              <p class="text-dark mb-0">名称：<a id="summary_grad_school">-</a></p>
+                              <p class="text-dark mb-0">专业：<a id="summary_grad_major">-</a></p>
+                              <p class="text-dark mb-0">GPA：<a id="summary_undergrad_gpa">-</a></p>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">高中经历</h6>
-                              <p class="text-dark mb-0">类型：<a>国际高中</a></p>
-                              <p class="text-dark mb-0">GPA：<a>4.0</a></p>
+                              <p class="text-dark mb-0">类型：<a id="summary_highschool_type">-</a></p>
+                              <p class="text-dark mb-0">GPA：<a id="summary_highschool_gpa">-</a></p>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">国际课程</h6>
-                              <p class="text-dark mb-0">A-LEVEL：<a>A*</a><a>A*</a><a>A*</a><a>A*</a></p>
-                              <p class="text-dark mb-0">IB：<a>O</a></p>
-                              <p class="text-dark mb-0">AP>=4：<a>0</a></p>
+                              <p class="text-dark mb-0">A-LEVEL：<span id="summary_alevel">-</span></p>
+                              <p class="text-dark mb-0">IB：<a id="summary_ib">-</a></p>
+                              <p class="text-dark mb-0">AP>=4：<a id="summary_ap">-</a></p>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">语言</h6>
-                              <p class="text-dark mb-0">雅思：<a>O</a> - <a>L</a> - <a>R</a> - <a>W</a> - <a>S</a></p>
-                              <p class="text-dark mb-0">托福：<a>O</a> - <a>L</a> - <a>R</a> - <a>W</a> - <a>S</a></p>
-                              <p class="text-dark mb-0">PTE：<a>O</a> - <a>L</a> - <a>R</a> - <a>W</a> - <a>S</a></p>
-                              <p class="text-dark mb-0">多邻国：<a>O</a></p>
+                              <p class="text-dark mb-0">雅思：<span id="summary_ielts">-</span></p>
+                              <p class="text-dark mb-0">托福：<span id="summary_toefl">-</span></p>
+                              <p class="text-dark mb-0">PTE：<span id="summary_pte">-</span></p>
+                              <p class="text-dark mb-0">多邻国：<a id="summary_duolingo">-</a></p>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">SAT/ACT</h6>
@@ -515,7 +500,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">GRE/GMET</h6>
@@ -526,25 +511,25 @@
                         </div>
                       </div>
                       <div class="col-12 col-lg-4">
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">活动及获奖 - 高质量</h6>
-                              <p class="text-dark mb-0">活动: <a>0</a></p>
-                              <p class="text-dark mb-0">科研/论文：<a>0</a></p>
-                              <p class="text-dark mb-0">获奖：<a>0</a></p>
+                              <p class="text-dark mb-0">活动: <a id="summary_activities">0</a></p>
+                              <p class="text-dark mb-0">科研/论文：<a id="summary_research">0</a></p>
+                              <p class="text-dark mb-0">获奖：<a id="summary_awards">0</a></p>
                             </div>
                           </div>
                         </div>
-                        <div class="wallet-card mt-0 mb-3">
+                        <div class="wallet-card mt-0 mb-3 card-bachelor card-master">
                           <div class="position-relative">
                             <div>
                               <h6 class="mb-0 text-secondary mb-1">工作经历 - 高质量</h6>
-                              <p class="text-dark mb-0">国外专业相关：<a>0</a></p>
-                              <p class="text-dark mb-0">国外专业不相关：<a>0</a></p>
+                              <p class="text-dark mb-0">国外专业相关：<a id="summary_work_abroad_related">0</a></p>
+                              <p class="text-dark mb-0">国外专业不相关：<a id="summary_work_abroad_unrelated">0</a></p>
                               <div class="app-divider-v dashed pt-1 pb-1"></div>
-                              <p class="text-dark mb-0">国内专业相关：<a>0</a></p>
-                              <p class="text-dark mb-0">国内专业不相关：<a>0</a></p>
+                              <p class="text-dark mb-0">国内专业相关：<a id="summary_work_domestic_related">0</a></p>
+                              <p class="text-dark mb-0">国内专业不相关：<a id="summary_work_domestic_unrelated">0</a></p>
                             </div>
                           </div>
                         </div>
@@ -552,7 +537,7 @@
                     </div>
                   </div>
                   <div class="card-footer d-flex justify-content-between">
-                    <button type="button" class="btn btn-outline-danger">重置</button>
+                    <button type="button" class="btn btn-outline-danger" id="btn-summary-reset">重置</button>
                     <button type="button" class="btn btn-outline-primary" disabled>生成结果</button>
                   </div>
                 </div>
@@ -582,6 +567,29 @@
                   </div>
 
                 </div>
+
+
+                <!-- <div class="card">
+                  <div class="card-header">
+                    <h5>学生画像</h5>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="wallet-card mt-0 mb-3">
+                          <canvas id="studentRadarChart" height="220"></canvas>
+                          <div class="text-muted mt-2" id="studentRadarHint"></div>
+                        </div>
+
+                      </div>
+
+
+                    </div>
+                  </div>
+
+                </div> -->
+
+
               </div>
 
             </div>
@@ -872,16 +880,21 @@
 
                   <div class="d-flex flex-wrap gap-3 align-items-center" id="bachelor_ielts_score_container"
                     style="display: none;">
-                    <input type="text" id="score_ielts_overall" class="form-control bachelor-IELTS-overall-input"
-                      id="input_bachelor_IELTS_overall" placeholder="Overall (0-9)" disabled style="width: 120px;">
-                    <input type="text" id="score_ielts_listening" class="form-control bachelor-IELTS-section-input"
-                      id="input_bachelor_IELTS_listening" placeholder="Listening" disabled style="width: 100px;">
-                    <input type="text" id="score_ielts_reading" class="form-control bachelor-IELTS-section-input"
-                      id="input_bachelor_IELTS_reading" placeholder="Reading" disabled style="width: 100px;">
-                    <input type="text" id="score_ielts_writing" class="form-control bachelor-IELTS-section-input"
-                      id="input_bachelor_IELTS_writing" placeholder="Writing" disabled style="width: 100px;">
-                    <input type="text" id="score_ielts_speaking" class="form-control bachelor-IELTS-section-input"
-                      id="input_bachelor_IELTS_speaking" placeholder="Speaking" disabled style="width: 100px;">
+                    <input type="text" id="input_bachelor_IELTS_overall"
+                      class="form-control bachelor-IELTS-overall-input" placeholder="Overall (0-9)" disabled
+                      style="width: 120px;">
+                    <input type="text" id="input_bachelor_IELTS_listening"
+                      class="form-control bachelor-IELTS-section-input" placeholder="Listening" disabled
+                      style="width: 100px;">
+                    <input type="text" id="input_bachelor_IELTS_reading"
+                      class="form-control bachelor-IELTS-section-input" placeholder="Reading" disabled
+                      style="width: 100px;">
+                    <input type="text" id="input_bachelor_IELTS_writing"
+                      class="form-control bachelor-IELTS-section-input" placeholder="Writing" disabled
+                      style="width: 100px;">
+                    <input type="text" id="input_bachelor_IELTS_speaking"
+                      class="form-control bachelor-IELTS-section-input" placeholder="Speaking" disabled
+                      style="width: 100px;">
                   </div>
                 </div>
 
@@ -1173,8 +1186,8 @@
               </div>
 
               <div class="row">
-                <div class="row d-flex flex-wrap gap-2 col-lg-6 col-12">
-                  <label class="form-label">是否有目标院校？</label>
+                <div class="col-lg-6 col-12 mb-3">
+                  <label class="form-label">是否有目标学校？</label>
 
                   <div class="col-12">
                     <select class="select-basic-multiple-four w-100" name="states[]" multiple="multiple"
@@ -1182,11 +1195,14 @@
                       <!-- 选项保持不变，可自行替换为真实院校 -->
                       <option value="AL">Alabama</option>
                       <option value="WY">Wyoming</option>
+                      <option value="WY">Wyoming</option>
+                      <option value="WY">Wyoming</option>
+                      <option value="WY">Wyoming</option>
                       <!-- ... 其他选项 -->
                     </select>
                   </div>
                 </div>
-                <div class="row d-flex flex-wrap gap-2 col-lg-6 col-12">
+                <div class="col-lg-6 col-12 mb-3">
                   <label class="form-label">是否有目标专业？</label>
 
                   <div class="col-12">
@@ -1208,8 +1224,8 @@
 
             <div class="row">
               <h5 class="mb-2 text-dark f-w-600">本科经历</h5>
-              <div class="col-lg-6 col-12 mb-3 mt-3">
-                <div class="row d-flex flex-wrap gap-2">
+              <div class="col-lg-6 col-12 mb-3">
+                <div class="row d-flex flex-wrap gap-2 mb-3">
                   <label class="form-label">类型</label>
                   <div class="col-12 d-flex flex-row gap-4 align-items-center">
 
@@ -1230,8 +1246,9 @@
 
                   </div>
                 </div>
+
               </div>
-              <div class="col-lg-6 col-12 mb-3 mt-3">
+              <div class="col-lg-6 col-12 mb-3">
                 <div class="row d-flex flex-wrap gap-2">
                   <label class="form-label">本科 GPA</label>
                   <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -1240,6 +1257,33 @@
                   </div>
                 </div>
               </div>
+
+
+              <div class="col-lg-6 col-12 mb-3 mt-3">
+                <div class="row d-flex flex-wrap gap-2 mb-3">
+                  <label class="form-label">本科院校</label>
+                  <div class="col-12">
+                    <select class="js-states form-control" id="select_master_graduated_school">
+                      <option></option>
+                    </select>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-lg-6 col-12 mb-3 mt-3">
+                <div class="row d-flex flex-wrap gap-2 mb-3">
+                  <label class="form-label">本科专业</label>
+                  <div class="col-12">
+                    <select class="js-states form-control" id="select_master_graduated_major">
+                      <option></option>
+                    </select>
+
+                  </div>
+
+                </div>
+              </div>
+
             </div>
             <div class="col-12">
               <div class="app-divider-v dotted"></div>
@@ -1413,8 +1457,8 @@
                     </div>
 
 
-                    <input type="text" id="input_master_work_abroad_related" class="form-control ACTIVITY-input" placeholder=""
-                      disabled style="width: 100px;">
+                    <input type="text" id="input_master_work_abroad_related" class="form-control ACTIVITY-input"
+                      placeholder="" disabled style="width: 100px;">
                   </div>
 
 
@@ -1439,15 +1483,16 @@
                       </label>
                     </div>
 
-                    <input type="text" id="input_master_work_domestic_related" class="form-control AWARD-input" placeholder=""
-                      disabled style="width: 100px;">
+                    <input type="text" id="input_master_work_domestic_related" class="form-control AWARD-input"
+                      placeholder="" disabled style="width: 100px;">
                   </div>
 
 
                   <div class="d-flex align-items-center flex-wrap gap-3">
                     <div class="form-check me-2">
                       <input class="form-check-input" type="checkbox" id="checkbox_master_work_domestic_unrelated">
-                      <label class="form-check-label" for="checkbox_master_work_domestic_unrelated" style="width: 100px;">
+                      <label class="form-check-label" for="checkbox_master_work_domestic_unrelated"
+                        style="width: 100px;">
                         国内专业不相关
                       </label>
                     </div>
@@ -1498,7 +1543,7 @@
 
     <!-- latest jquery-->
     <script src="assets/js/jquery-3.6.3.min.js"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <!-- Simple bar js-->
     <script src="assets/vendor/simplebar/simplebar.js"></script>
 
@@ -1514,8 +1559,8 @@
     <!-- js -->
     <script src="assets/js/input_masks.js"></script>
 
-    <!--js-->
-    <script src="assets/js/select.js"></script>
+    <!-- js
+    <script src="assets/js/select.js"></script> -->
 
     <script src="assets/vendor/jstree/jstree.min.js"></script>
     <!-- tree-view-custom-js  -->
@@ -1524,7 +1569,9 @@
     <!-- App js-->
     <script src="assets/js/script.js"></script>
 
-    <script src="assets/js/dzh.js"></script>
+    <script type="module" src="assets/js/dzh.js"></script>
+
+    <script src="assets/js/HTTPRequest.js"></script>
 
 </body>
 

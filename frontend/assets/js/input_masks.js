@@ -51,10 +51,12 @@ new Cleave(".bachelor-IELTS-overall-input", {
 });
 
 // 雅思单项（0-9，支持 .5）
-new Cleave(".bachelor-IELTS-section-input", {
-  numericOnly: true,
-  delimiters: ["."],
+document.querySelectorAll(".bachelor-IELTS-section-input").forEach((el) => {
+  new Cleave(el, {
+    numericOnly: true,
+    delimiters: ["."],
   blocks: [1, 1],
+  });
 });
 
 // 托福总分（0-120）
@@ -115,46 +117,7 @@ new Cleave(".bachelor-PTE-section-input", {
 
 
 // master
-// 本科 GPA（4.0 格式）
-new Cleave(".master-undergraduate-gpa-input", {
-  numericOnly: true,
-  delimiters: ["."],
-  blocks: [1, 1],
-});
 
-// IB 总分（25-45，整数）
-new Cleave(".master-IB-input", {
-  numeral: true,
-  numeralThousandsGroupStyle: "none",
-  numeralDecimalScale: 0,
-  numeralIntegerScale: 2,
-  blocks: [2],
-  numericOnly: true,
-});
-
-document.querySelector(".master-IB-input").addEventListener("blur", function () {
-  let value = this.value.trim();
-  if (value === "") return;
-
-  let num = parseInt(value, 10);
-  if (isNaN(num)) {
-    this.value = "";
-    return;
-  }
-
-  if (num < 25) this.value = "25";
-  else if (num > 45) this.value = "45";
-});
-
-// AP（4分以上，整数）
-new Cleave(".master-AP-input", {
-  numeral: true,
-  numeralThousandsGroupStyle: "none",
-  numeralDecimalScale: 0,
-  numeralIntegerScale: 2,
-  blocks: [2],
-  numericOnly: true,
-});
 
 // 雅思 Overall（0-9，支持 .5）
 new Cleave(".master-IELTS-overall-input", {
@@ -164,10 +127,13 @@ new Cleave(".master-IELTS-overall-input", {
 });
 
 // 雅思单项
-new Cleave(".master-IELTS-section-input", {
-  numericOnly: true,
-  delimiters: ["."],
-  blocks: [1, 1],
+document.querySelectorAll(".master-IELTS-section-input").forEach((el) => {
+  new Cleave(el, {
+    numericOnly: true,
+    decimalScale: 1,
+    decimalMark: ".",
+    delimiter: "",
+  });
 });
 
 // 托福总分（0-120）
