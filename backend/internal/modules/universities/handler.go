@@ -84,3 +84,36 @@ func (h *Handler) GetByID(c *gin.Context) {
 		"domains_json":  u.DomainsJSON,
 	})
 }
+
+
+func (h *Handler) ListAllNameCN(c *gin.Context) {
+	names, err := h.svc.ListAllNameCN(c.Request.Context())
+	if err != nil {
+		response.ServerError(c, err.Error())
+		return
+	}
+	response.OK(c, names)
+}
+
+func (h *Handler) OptionsCN(c *gin.Context) {
+	q := c.Query("q")
+	page, _ := strconv.Atoi(c.DefaultQuery("page", "1"))
+	size, _ := strconv.Atoi(c.DefaultQuery("size", "20"))
+
+	items, total, err := h.svc.OptionsCN(c.Request.Context(), OptionsCNParams{
+		Q:    q,
+		Page: page,
+		Size: size,
+	})
+	if err != nil {
+		response.ServerError(c, err.Error())
+		return
+	}
+
+	response.OK(c, PagedResult[UniversityOptionCNDTO]{
+		Page:  page,
+		Size:  size,
+		Total: total,
+		Items: items,
+	})
+}

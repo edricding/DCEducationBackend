@@ -97,3 +97,78 @@ LIMIT 1
 	}
 	return &u, nil
 }
+
+
+func (r *Repo) ListAllNameCN(ctx context.Context) ([]string, error) {
+	var names []string
+	err := r.db.SelectContext(ctx, &names, `
+SELECT name_cn
+FROM universities
+WHERE name_cn IS NOT NULL AND name_cn <> ''
+ORDER BY name_cn
+`)
+	if err != nil {
+		return nil, err
+	}
+	return names, nil
+}
+
+
+type OptionsCNParams struct {
+	Q    string
+	Page int
+	Size int
+}
+
+func (r *Repo) OptionsCN(ctx context.Context, p OptionsCNParams) ([]UniversityOptionCNDTO, int, error) {
+	if p.Page <= 0 {
+		p.Page = 1
+	}
+	if p.Size <= 0 || p.Size > 200 {
+		p.Size = 20
+	}
+	offset := (p.Page - 1) * p.Size
+
+	where := "name_cn IS NOT NULL AND name_cn <> ''"
+	args := map[string]interface{}{}
+
+	if strings.TrimSpace(p.Q) != "" {
+		where += " AND name_cn LIKE :q"
+		args["q"] = "%" + strings.TrimSpace(p.Q) + "%"
+	}
+
+	// total
+	countSQL := "SELECT COUNT(*) FROM universities WHERE " + where
+	countStmt, err := r.db.PrepareNamedContext(ctx, countSQL)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer countStmt.Close()
+
+	var total int
+	if err := countStmt.GetContext(ctx, &total, args); err != nil {
+		return nil, 0, err
+	}
+
+	// list
+	listSQL := fmt.Sprintf(`
+SELECT id, name_cn
+FROM universities
+WHERE %s
+ORDER BY name_cn
+LIMIT %d OFFSET %d
+`, where, p.Size, offset)
+
+	listStmt, err := r.db.PrepareNamedContext(ctx, listSQL)
+	if err != nil {
+		return nil, 0, err
+	}
+	defer listStmt.Close()
+
+	var items []UniversityOptionCNDTO
+	if err := listStmt.SelectContext(ctx, &items, args); err != nil {
+		return nil, 0, err
+	}
+
+	return items, total, nil
+}

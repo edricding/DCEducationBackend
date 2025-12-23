@@ -15,3 +15,7 @@ type PagedResult[T any] struct {
 	Total int `json:"total"`
 	Items []T `json:"items"`
 }
+type UniversityOptionCNDTO struct {
+	ID     uint64 `json:"id"`
+	NameCN string `json:"name_cn"`
+}
