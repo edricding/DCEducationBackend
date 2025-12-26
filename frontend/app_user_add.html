@@ -13,7 +13,7 @@
   <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/x-icon">
 
-  <title>留学分析 | 鼎承教育</title>
+  <title>新增用户 | 鼎承教育</title>
 
   <!--font-awesome-css-->
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css">
@@ -35,8 +35,12 @@
   <!-- Bootstrap css-->
   <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/bootstrap.min.css">
 
+
   <!-- simplebar css-->
   <link rel="stylesheet" type="text/css" href="assets/vendor/simplebar/simplebar.css">
+
+  <!-- tree-view css  -->
+  <link rel="stylesheet" href="assets/vendor/jstree/style.min.css">
 
   <!-- App css-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -59,7 +63,7 @@
       </div>
     </div>
 
-     <!-- Menu Navigation starts -->
+    <!-- Menu Navigation starts -->
     <nav>
       <div class="app-logo">
         <a class="logo d-inline-block" href="index.html">
@@ -131,14 +135,13 @@
     <!-- Menu Navigation ends -->
 
 
-
     <div class="app-content">
       <div class="">
 
         <!-- Header Section starts -->
         <header class="header-main">
           <div class="container-fluid">
-           <div class="row">
+            <div class="row">
 
 
               <div class="col-12 d-flex align-items-center justify-content-end header-right p-0">
@@ -252,7 +255,125 @@
         </header>
         <!-- Header Section ends -->
 
-       
+        <!-- Body main section starts -->
+        <main>
+         <div class="container-fluid">
+            <!-- Breadcrumb start -->
+            <div class="row m-1">
+              <div class="col-12 ">
+                <h4 class="main-title">用户管理</h4>
+                <ul class="app-line-breadcrumbs mb-3">
+                  <li class="">
+                    <a href="#" class="f-s-14 f-w-500"> 
+                      <span>
+                        <i class="ph-duotone  ph-table f-s-16"></i> 用户
+                      </span>
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="#" class="f-s-14 f-w-500">用户新增</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Breadcrumb end -->
+
+            <!-- Data Table start -->
+            <div class="row">
+              <!-- Default Datatable start -->
+              <div class="col-12">
+                <div class="card setting-profile-tab">
+                                            <div class="card-header">
+                                                <h5>添加新用户</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="profile-tab profile-container">
+                                                    <div class="image-details">
+                                                        <div class="profile-image"></div>
+                                                        <div class="profile-pic">
+                                                            <div class="avatar-upload">
+                                                                <div class="avatar-edit">
+                                                                    
+                                                                </div>
+                                                                <div class="avatar-preview">
+                                                                    <div id="imgPreview">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="person-details">
+                                                        <h5 class="f-w-600">Creat New User</h5>
+                                                        <p>Superadmin / Admin / User</p>
+                                                    </div>
+
+                                                    <form class="app-form">
+                                                        <h5 class="mb-2 text-dark f-w-600">用户信息</h5>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">用户名</label>
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Username">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">邮箱</label>
+                                                                    <input type="email" class="form-control"
+                                                                        placeholder="Email address">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">密码</label>
+                                                                    <input type="password" class="form-control"
+                                                                        placeholder="*******">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">确认密码</label>
+                                                                    <input type="password" class="form-control"
+                                                                        placeholder="*******">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="col-md-6 col-xl-4">
+                                                                <div class="">
+                                                                    <label class="form-label">权限</label>
+                                                                    <select
+                                                                        class="select-langauge form-select select-basic"
+                                                                        name="state">
+                                                                        <option value="user">USER</option>
+                                                                        <option value="admin">ADMIN</option>
+                                                                        <option value="superadmin">SUPERADMIN</option>
+                                                                        
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="text-end">
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">提交</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+              </div>
+              <!-- Default Datatable end -->
+             
+            </div>
+            <!-- Data Table end -->
+          </div>
+        </main>
+
+        <!-- Body main section ends -->
+
 
         <!-- tap on top -->
         <div class="go-top">
@@ -285,26 +406,25 @@
 
 
 
+    <!-- latest jquery-->
+    <script src="assets/js/jquery-3.6.3.min.js"></script>
 
+  
+    <!-- Simple bar js-->
+    <script src="assets/vendor/simplebar/simplebar.js"></script>
 
-  <!-- latest jquery-->
-  <script src="assets/js/jquery-3.6.3.min.js"></script>
+    <!-- phosphor js -->
+    <script src="assets/vendor/phosphor/phosphor.js"></script>
 
-  <!-- Simple bar js-->
-  <script src="assets/vendor/simplebar/simplebar.js"></script>
+    <!-- Bootstrap js-->
+    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 
-  <!-- phosphor js -->
-  <script src="assets/vendor/phosphor/phosphor.js"></script>
+    <!-- App js-->
+    <script src="assets/js/script.js"></script>
 
-  <!-- Bootstrap js-->
-  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/app_user.js"></script>
 
-  <!-- App js-->
-  <script src="assets/js/script.js"></script>
-
-  <!-- Customizer js-->
-  <script src="assets/js/customizer.js"></script>
-
+    <script src="assets/js/HTTPRequest.js"></script>
 
 </body>
 
