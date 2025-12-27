@@ -5,7 +5,9 @@ import (
 	"github.com/jmoiron/sqlx"
 
 	"backend/internal/config"
+
 	"backend/internal/modules/universities"
+	"backend/internal/modules/users"
 )
 
 func NewRouter(cfg config.Config, db *sqlx.DB) *gin.Engine {
@@ -34,6 +36,14 @@ func NewRouter(cfg config.Config, db *sqlx.DB) *gin.Engine {
 
 
 	}
+
+	// users module wiring
+userRepo := users.NewRepo(db)
+userSvc := users.NewService(userRepo)
+userHandler := users.NewHandler(userSvc)
+
+v1.POST("/users", userHandler.Create)
+
 
 	return r
 }
