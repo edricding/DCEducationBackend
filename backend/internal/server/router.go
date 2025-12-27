@@ -8,6 +8,7 @@ import (
 
 	"backend/internal/modules/universities"
 	"backend/internal/modules/users"
+	"backend/internal/modules/auth"
 )
 
 func NewRouter(cfg config.Config, db *sqlx.DB) *gin.Engine {
@@ -21,6 +22,17 @@ func NewRouter(cfg config.Config, db *sqlx.DB) *gin.Engine {
 	})
 
 	v1 := r.Group("/api/v1")
+
+
+	aRepo := auth.NewRepo(db)
+	aSvc := auth.NewService(aRepo)
+	aHandler := auth.NewHandler(aSvc)
+
+	ag := v1.Group("/auth")
+	{
+		ag.POST("/login", aHandler.Login)
+	}
+
 
 	// universities module wiring
 	uRepo := universities.NewRepo(db)
@@ -37,12 +49,12 @@ func NewRouter(cfg config.Config, db *sqlx.DB) *gin.Engine {
 
 	}
 
-	// users module wiring
-userRepo := users.NewRepo(db)
-userSvc := users.NewService(userRepo)
-userHandler := users.NewHandler(userSvc)
+		// users module wiring
+	userRepo := users.NewRepo(db)
+	userSvc := users.NewService(userRepo)
+	userHandler := users.NewHandler(userSvc)
 
-v1.POST("/users", userHandler.Create)
+	v1.POST("/users", userHandler.Create)
 
 
 	return r
