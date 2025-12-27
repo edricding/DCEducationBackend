@@ -23,6 +23,18 @@ func NewRouter(cfg config.Config, db *sqlx.DB) *gin.Engine {
 
 	v1 := r.Group("/api/v1")
 
+	// auth module wiring
+	aRepo := auth.NewRepo(db)
+	aSvc := auth.NewService(aRepo)
+	aHandler := auth.NewHandler(aSvc)
+
+	ag := v1.Group("/auth")
+	{
+		ag.POST("/login", aHandler.Login)
+
+		// 需要 token 的接口
+		ag.GET("/me", auth.AuthRequired(), aHandler.Me)
+	}
 
 	aRepo := auth.NewRepo(db)
 	aSvc := auth.NewService(aRepo)

@@ -42,3 +42,27 @@ func (h *Handler) Login(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"code": 0, "message": "ok", "data": resp})
 }
+
+func (h *Handler) Me(c *gin.Context) {
+	uidAny, ok := c.Get(CtxUserIDKey)
+	if !ok {
+		c.JSON(http.StatusUnauthorized, gin.H{"code": 401, "message": "missing auth context"})
+		return
+	}
+
+	userID, _ := uidAny.(uint64)
+	username, _ := c.Get(CtxUsernameKey)
+	role, _ := c.Get(CtxRoleKey)
+	perm, _ := c.Get(CtxPermKey)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code":    0,
+		"message": "ok",
+		"data": gin.H{
+			"id":               userID,
+			"username":         username,
+			"role":             role,
+			"permission_level": perm,
+		},
+	})
+}
