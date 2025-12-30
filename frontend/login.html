@@ -44,44 +44,52 @@
       <main class="w-100 p-0">
         <!-- Login to your Account start -->
         <div class="container-fluid">
-            <div class="row">
+          <div class="row">
 
-                <div class="col-12 p-0">
-                    <div class="login-form-container">
-                      <div class="mb-4">
-                        <a class="logo d-inline-block" href="index.html">
-                          <img src="assets/images/logo/1.png" width="250" alt="#">
-                        </a>
-                      </div>
-                      <div class="form_container">
-                        
-                        <form class="app-form">
-                          <div class="mb-3 text-center">
-                            <h3>账号登录</h3>
-                            <p class="f-s-12 text-secondary">本页面仅供鼎承内部使用，如有疑问可咨询技术人员。</p>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label">电子邮箱</label>
-                            <input type="email" class="form-control">
-                            <div class="form-text text">*请使用企业邮箱登录</div>
-                          </div>
-                          <div class="mb-3">
-                            <label class="form-label">密码</label>
-                            <input type="password" class="form-control">
-                          </div>
-                          <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="formCheck1">
-                            <label class="form-check-label" for="formCheck1">记住账号</label>
-                          </div>
-                          <div>
-                            <a href="./index.html" role="button" class="btn btn-primary w-100">登录</a>
-                          </div>
-                          
-                        </form>
-                      </div>
-                    </div>
+            <div class="col-12 p-0">
+              <div class="login-form-container">
+                <div class="mb-4">
+                  <a class="logo d-inline-block" href="index.html">
+                    <img src="assets/images/logo/1.png" width="250" alt="#">
+                  </a>
                 </div>
+                <div class="form_container">
+
+                  <form class="app-form" id="loginForm">
+                    <div class="mb-3 text-center">
+                      <h3>账号登录</h3>
+                      <p class="f-s-12 text-secondary">本页面仅供鼎承内部使用，如有疑问可咨询技术人员。</p>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">电子邮箱</label>
+                      <input id="login_identifier" type="email" class="form-control" autocomplete="username">
+                      <div class="form-text text">*请使用企业邮箱登录</div>
+                      <div id="login_identifierError" class="form-text text-danger"></div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">密码</label>
+                      <input id="login_password" type="password" class="form-control" autocomplete="current-password">
+                      <div id="login_passwordError" class="form-text text-danger"></div>
+                    </div>
+
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="rememberMe">
+                      <label class="form-check-label" for="rememberMe">记住账号</label>
+                    </div>
+
+                    <div id="loginError" class="text-danger mb-2"></div>
+
+                    <div>
+                      <button id="login_submit" type="submit" class="btn btn-primary w-100">登录</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
             </div>
+          </div>
         </div>
         <!-- Login to your Account end -->
       </main>
@@ -93,6 +101,9 @@
 
   <!-- Bootstrap js-->
   <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/login.js"></script>
+
 
 </body>
 
