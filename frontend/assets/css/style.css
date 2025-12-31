@@ -39666,7 +39666,7 @@ body[class="ltr dark"] .team-chat-container {
   border: 1px dashed rgba(var(--primary), 1) !important;
 }
 .active-device-session li .share-menu-active {
-  border: 1px dashed rgba(var(--success), 1) !important;
+  border: 1px dashed rgba(var(--primary), 1) !important;
 }
 
 .account-security .account-security-img {
@@ -42354,4 +42354,9 @@ select#model {
 
 .text-upper{
   text-transform: uppercase;
+}
+
+.tags-setting-switch input{
+  height: 25px!important;
+  width: 40px!important;
 }
