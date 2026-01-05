@@ -25,6 +25,7 @@ func (h *Handler) Search(c *gin.Context) {
 	size, _ := strconv.Atoi(c.DefaultQuery("size", "20"))
 
 	items, total, err := h.svc.Search(c.Request.Context(), SearchParams{
+		CountryID: countryID, // ✅ 关键：用到了，编译器就不会报 unused
 		CountryCode: countryCode,
 		Q:           q,
 		Page:        page,

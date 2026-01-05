@@ -159,12 +159,12 @@ func (r *Repo) OptionsCN(ctx context.Context, p OptionsCNParams) ([]UniversityOp
 
 	// list
 	listSQL := fmt.Sprintf(`
-SELECT id, name_cn
-FROM universities
-WHERE %s
-ORDER BY name_cn
-LIMIT %d OFFSET %d
-`, where, p.Size, offset)
+	SELECT id, name_cn
+	FROM universities
+	WHERE %s
+	ORDER BY name_cn
+	LIMIT %d OFFSET %d
+	`, where, p.Size, offset)
 
 	listStmt, err := r.db.PrepareNamedContext(ctx, listSQL)
 	if err != nil {
