@@ -15,7 +15,7 @@ $(function () {
   }
 
   $bachelorSchool.select2({
-    placeholder: "????????????",
+    placeholder: "搜索并选择学校...",
     allowClear: true,
     dropdownParent: $(document.body),
     minimumInputLength: 1,
@@ -73,7 +73,7 @@ $(function () {
   });
 
   $bachelorMajor.select2({
-    placeholder: "????????????",
+    placeholder: "搜索并选择专业...",
     allowClear: true,
     dropdownParent: $(document.body),
     minimumInputLength: 1,
@@ -121,10 +121,13 @@ $(function () {
             schoolMap.set(String(item.id), item.text || "");
           }
         });
-        const results = items.map((item) => ({
-          id: item.id,
-          text: `${item.major_name_cn || ""} - ${schoolMap.get(String(item.university_id)) || item.university_id || ""}`,
-        }));
+        const results = items.map((item) => {
+          const mv = item.match_view || {};
+          return {
+            id: mv.program_id,
+            text: `${mv.major_name_cn || ""} - ${schoolMap.get(String(mv.university_id)) || mv.university_id || ""}`,
+          };
+        });
         const normalizedResults = results
           .map((item) => ({
             id: item.id != null ? String(item.id) : "",
@@ -358,8 +361,47 @@ $(document).on("change", "#select_bachelor_to_major", function () {
 
 
 
+function normalizeIeltsScore(value) {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  const cleaned = raw.replace(/[^0-9.]/g, "");
+  if (!cleaned) return "";
+  const num = Number(cleaned);
+  if (!Number.isFinite(num) || num < 0) return "";
+  if (num > 9) return "";
+  const rounded = Math.round(num * 2) / 2;
+  return rounded.toFixed(1);
+}
+
+function formatIeltsInputs(ids) {
+  ids.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const formatted = normalizeIeltsScore(el.value);
+    if (el.value.trim() === "" && formatted === "") return;
+    el.value = formatted;
+  });
+}
+
+$(document).on(
+  "blur",
+  ".bachelor-IELTS-overall-input, .bachelor-IELTS-section-input, .master-IELTS-overall-input, .master-IELTS-section-input",
+  function () {
+    const formatted = normalizeIeltsScore(this.value);
+    if (this.value.trim() === "" && formatted === "") return;
+    this.value = formatted;
+  }
+);
+
 // Render master summary on confirm
 $(document).on("click", "#btn-modal-master-confirm", function () {
+  formatIeltsInputs([
+    "score_ielts_overall",
+    "score_ielts_listening",
+    "score_ielts_reading",
+    "score_ielts_writing",
+    "score_ielts_speaking",
+  ]);
   const data = collectMasterFormData();
 
   // Replace select2 values with display text
@@ -375,6 +417,13 @@ $(document).on("click", "#btn-modal-master-confirm", function () {
 
 // Render bachelor summary on confirm
 $(document).on("click", "#btn-modal-bachelor-confirm", function () {
+  formatIeltsInputs([
+    "input_bachelor_IELTS_overall",
+    "input_bachelor_IELTS_listening",
+    "input_bachelor_IELTS_reading",
+    "input_bachelor_IELTS_writing",
+    "input_bachelor_IELTS_speaking",
+  ]);
   const data = collectBachelorFormData();
 
   // Replace select2 values with display text
@@ -395,7 +444,7 @@ document
     const selects = container.querySelectorAll("select");
 
     if (this.checked) {
-      container.style.display = "flex"; // 显示�?flex，保持水平排�?
+      container.style.display = "flex"; 
       selects.forEach((sel) => (sel.disabled = false));
     } else {
       container.style.display = "none";
@@ -432,7 +481,7 @@ document
     }
   });
 
-// 雅�?IELTS
+// 雅思
 document
   .getElementById("checkbox_bachelor_ielts")
   .addEventListener("change", function () {

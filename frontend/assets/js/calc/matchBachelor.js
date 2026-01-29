@@ -279,6 +279,37 @@ function requirementPenalty(student, program) {
   return penalty;
 }
 
+function requirementBonus(student, program) {
+  const req = program.requirements || {};
+  let bonus = 0;
+
+  // IELTS overall recommended
+  const ieltsOverall = safeNumber(student.raw.language_scores?.ielts?.overall);
+  if (req.ieltsOverallRec != null && isValidValue(ieltsOverall)) {
+    if (ieltsOverall >= req.ieltsOverallRec) bonus += (req.ieltsOverallRecBonusFactor ?? 4);
+  }
+
+  // TOEFL total recommended
+  const toeflTotal = safeNumber(student.raw.language_scores?.toefl?.total);
+  if (req.toeflTotalRec != null && isValidValue(toeflTotal)) {
+    if (toeflTotal >= req.toeflTotalRec) bonus += (req.toeflRecBonusFactor ?? 3);
+  }
+
+  // PTE total recommended
+  const pteTotal = safeNumber(student.raw.language_scores?.pte?.total);
+  if (req.pteTotalRec != null && isValidValue(pteTotal)) {
+    if (pteTotal >= req.pteTotalRec) bonus += (req.pteRecBonusFactor ?? 3);
+  }
+
+  // Duolingo recommended
+  const duoTotal = safeNumber(student.raw.language_scores?.duolingo);
+  if (req.duolingoRec != null && isValidValue(duoTotal)) {
+    if (duoTotal >= req.duolingoRec) bonus += (req.duolingoRecBonusFactor ?? 2);
+  }
+
+  return bonus;
+}
+
 function tagBonus(studentTags, programTags) {
   if (!Array.isArray(studentTags) || !Array.isArray(programTags)) return 0;
 
@@ -301,7 +332,7 @@ function scoreProgramFit(student, program) {
 
   const base = weightedMean(student.parts, weights) ?? 0;
   const penalty = requirementPenalty(student, program);
-  const bonus = tagBonus(student.tags, program.tags);
+  const bonus = tagBonus(student.tags, program.tags) + requirementBonus(student, program);
 
   let tierAdj = 0;
   if (program.tier === "top") tierAdj = -3;

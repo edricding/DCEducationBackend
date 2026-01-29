@@ -1,13 +1,17 @@
-// assets/js/login.js
+﻿// assets/js/login.js
 
-// ====== 可按需改：token 存储 key ======
+// ====== 可按需修改：token 存储 key ======
 const TOKEN_KEY = "dc_token";
 const USER_KEY = "dc_user";
 const REMEMBER_KEY = "dc_remember_identifier";
 
 // ====== 统一解析后端错误信息（沿用你 httprequest.js 的风格）=====
 function extractApiError(data, resp) {
-  if (!data) return resp?.status ? `请求失败（HTTP ${resp.status}）` : "请求失败";
+  if (!data) {
+    return resp?.status
+      ? `请求失败（HTTP ${resp.status}）`
+      : "请求失败";
+  }
   return (
     data.message ||
     data.error ||
@@ -108,7 +112,7 @@ async function submitLogin() {
     // 跳转首页（按你实际页面改）
     window.location.href = "./dashboard_index.html";
   } catch (e) {
-    $("#loginError").text("网络错误或服务器不可达");
+    $("#loginError").text("网络错误或服务器不可达。");
   } finally {
     $btn.prop("disabled", false).text(oldText);
   }

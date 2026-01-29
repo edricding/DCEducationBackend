@@ -76,9 +76,7 @@
             </div>
             <div class="app-nav" id="app-simple-bar">
                 <ul class="main-nav p-0 mt-2">
-                    <li class="menu-title">
-                        <span>控制台</span>
-                    </li>
+                    
                     <li>
                         <a class="" data-bs-toggle="collapse" href="#dashboard" aria-expanded="false">
                             <i class="ph-duotone  ph-house-line"></i>
@@ -92,7 +90,7 @@
                     </li>
 
 
-                    
+
 
                     <li>
                         <a class="" data-bs-toggle="collapse" href="#apps" aria-expanded="false">
@@ -101,6 +99,7 @@
                         </a>
                         <ul class="collapse" id="apps">
 
+
                             <li class="another-level">
                                 <a class="" data-bs-toggle="collapse" href="#Data-page" aria-expanded="false">
                                     数据
@@ -108,6 +107,15 @@
                                 <ul class="collapse" id="Data-page">
                                     <li><a href="app_data_upload.html">上传数据</a></li>
                                     <li><a href="app_data_read.html">读取数据</a></li>
+                                </ul>
+                            </li>
+                            <li class="another-level">
+                                <a class="" data-bs-toggle="collapse" href="#Tags-page" aria-expanded="false">
+                                    标签
+                                </a>
+                                <ul class="collapse" id="Tags-page">
+                                    <li><a href="app_tags_update.html">标签录入</a></li>
+                                    <li><a href="app_tags_settings.html">标签设置</a></li>
                                 </ul>
                             </li>
                             <li class="another-level">
@@ -222,8 +230,11 @@
                                                             </span>
                                                         </div>
                                                         <div class="text-center mt-2">
-                                                            <h6 class="mb-0"><span class="js-user-name">Admin</span></h6>
-                                                            <p class="f-s-12 mb-0 text-secondary"><span class="js-user-email">info@dceducation.com.cn</span></p>
+                                                            <h6 class="mb-0"><span class="js-user-name">Admin</span>
+                                                            </h6>
+                                                            <p class="f-s-12 mb-0 text-secondary"><span
+                                                                    class="js-user-email">info@dceducation.com.cn</span>
+                                                            </p>
                                                         </div>
                                                     </li>
 
@@ -319,7 +330,8 @@
                                                             <label class="form-label">用户名</label>
                                                             <input type="text" class="form-control"
                                                                 placeholder="Username" id="add_username">
-                                                                <div id="add_usernameError" class="text-danger small mt-1"></div>
+                                                            <div id="add_usernameError" class="text-danger small mt-1">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
@@ -327,7 +339,8 @@
                                                             <label class="form-label">邮箱</label>
                                                             <input type="email" class="form-control"
                                                                 placeholder="Email address" id="add_email">
-                                                                <div id="add_emailError" class="text-danger small mt-1"></div>
+                                                            <div id="add_emailError" class="text-danger small mt-1">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -335,7 +348,8 @@
                                                             <label class="form-label">密码</label>
                                                             <input type="password" class="form-control"
                                                                 placeholder="*******" id="add_password">
-                                                                <div id="add_passwordError" class="text-danger small mt-1"></div>
+                                                            <div id="add_passwordError" class="text-danger small mt-1">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -343,7 +357,8 @@
                                                             <label class="form-label">确认密码</label>
                                                             <input type="password" class="form-control"
                                                                 placeholder="*******" id="add_confirm_password">
-                                                                <div id="add_confirm_passwordError" class="text-danger small mt-1"></div>
+                                                            <div id="add_confirm_passwordError"
+                                                                class="text-danger small mt-1"></div>
                                                         </div>
                                                     </div>
 
@@ -351,18 +366,20 @@
                                                         <div class="">
                                                             <label class="form-label">权限</label>
                                                             <select class="select-langauge form-select select-basic"
-                                                                name="state"  id="add_role">
+                                                                name="state" id="add_role">
                                                                 <option value="user">USER</option>
                                                                 <option value="admin">ADMIN</option>
                                                                 <option value="superadmin">SUPERADMIN</option>
 
                                                             </select>
-                                                            <div id="add_roleError" class="text-danger small mt-1"></div>
+                                                            <div id="add_roleError" class="text-danger small mt-1">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12">
                                                         <div class="text-end">
-                                                            <button type="button" class="btn btn-primary" id="add_submit">提交</button>
+                                                            <button type="button" class="btn btn-primary"
+                                                                id="add_submit">提交</button>
                                                         </div>
                                                     </div>
                                                 </div>

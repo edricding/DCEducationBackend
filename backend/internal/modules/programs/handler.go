@@ -1,6 +1,7 @@
 package programs
 
 import (
+	"database/sql"
 	"net/http"
 	"strings"
 
@@ -26,7 +27,16 @@ func (h *Handler) SearchPost(c *gin.Context) {
 
 	level := strings.TrimSpace(req.DegreeLevel)
 	if level == "" {
-		level = "Bachelor"
+		level = "all"
+	}
+	switch strings.ToLower(level) {
+	case "all":
+		level = ""
+	case "bachelor", "master":
+		// keep as-is (case-insensitive compare in repo)
+	default:
+		response.BadRequest(c, "invalid degree_level, allowed: all|bachelor|master")
+		return
 	}
 
 	page := req.Page
@@ -38,7 +48,7 @@ func (h *Handler) SearchPost(c *gin.Context) {
 		size = 20
 	}
 
-	items, total, err := h.svc.Search(c.Request.Context(), SearchParams{
+	result, err := h.svc.Search(c.Request.Context(), SearchParams{
 		UniversityIDs: req.UniversityIDs,
 		DegreeLevel:   level,
 		Q:             req.Q,
@@ -50,14 +60,28 @@ func (h *Handler) SearchPost(c *gin.Context) {
 		return
 	}
 
-	dtoItems := make([]ProgramSearchItemDTO, 0, len(items))
-	for _, p := range items {
-		dtoItems = append(dtoItems, ProgramSearchItemDTO{
-			ID:           p.ID,
-			UniversityID: p.UniversityID,
-			MajorNameCN:  p.MajorNameCN,
-			DegreeLevel:  p.DegreeLevel,
-		})
+	dtoItems := make([]ProgramSearchItemDTO, 0, len(result.Items))
+	for _, p := range result.Items {
+		dto := ProgramSearchItemDTO{
+			MatchView: &ProgramMatchViewDTO{
+				ProgramID:        p.ProgramID,
+				UniversityID:     p.UniversityID,
+				CountryCode:      p.CountryCode,
+				Country:          p.Country,
+				UniversityNameEN: p.UniversityNameEN,
+				UniversityNameCN: p.UniversityNameCN,
+				MajorNameEN:      p.MajorNameEN,
+				MajorNameCN:      p.MajorNameCN,
+				DegreeLevel:      p.DegreeLevel,
+				Tier:             p.Tier,
+				IsActive:         p.IsActive,
+				TagsSetOrNot:     p.TagsSetOrNot,
+				WeightsJSON:      rawJSON(p.WeightsJSON),
+				RequirementsJSON: rawJSON(p.RequirementsJSON),
+			},
+		}
+
+		dtoItems = append(dtoItems, dto)
 	}
 
 	c.JSON(http.StatusOK, gin.H{
@@ -66,8 +90,15 @@ func (h *Handler) SearchPost(c *gin.Context) {
 		"data": PagedResult[ProgramSearchItemDTO]{
 			Page:  page,
 			Size:  size,
-			Total: total,
+			Total: result.Total,
 			Items: dtoItems,
 		},
 	})
+}
+
+func rawJSON(ns sql.NullString) []byte {
+	if ns.Valid && ns.String != "" {
+		return []byte(ns.String)
+	}
+	return nil
 }

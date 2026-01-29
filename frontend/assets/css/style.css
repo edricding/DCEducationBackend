@@ -42356,9 +42356,9 @@ select#model {
   }
 }
 
-.select2-container{
+/* .select2-container{
    z-index:9999;
-}
+} */
 
 .text-upper{
   text-transform: uppercase;
@@ -42396,4 +42396,20 @@ body.page-fade.page-leave {
 .select2-results__option {
   pointer-events: auto !important;
   z-index: 30000 !important;
+}
+
+.tag-action-btn {
+  padding: 4px 10px;
+}
+
+/* Sticky action column for tags table */
+#majorsList th:last-child,
+#majorsList td:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+}
+
+#majorsList thead th:last-child {
+  z-index: 3;
 }

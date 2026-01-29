@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-     <!-- Menu Navigation starts -->
+    <!-- Menu Navigation starts -->
     <nav>
       <div class="app-logo">
         <a class="logo d-inline-block" href="index.html">
@@ -77,7 +77,10 @@
       </div>
       <div class="app-nav" id="app-simple-bar">
         <ul class="main-nav p-0 mt-2">
-<li>
+          <li class="menu-title">
+            <span>控制台</span>
+          </li>
+          <li>
             <a class="" data-bs-toggle="collapse" href="#dashboard" aria-expanded="false">
               <i class="ph-duotone  ph-house-line"></i>
               控制台
@@ -88,12 +91,17 @@
               <li><a href="dashboard_analysis.html">留学分析</a></li>
             </ul>
           </li>
-<li>
+
+
+
+
+          <li>
             <a class="" data-bs-toggle="collapse" href="#apps" aria-expanded="false">
               <i class="ph-duotone  ph-stack"></i>
               应用
             </a>
             <ul class="collapse" id="apps">
+
 
               <li class="another-level">
                 <a class="" data-bs-toggle="collapse" href="#Data-page" aria-expanded="false">
@@ -102,6 +110,15 @@
                 <ul class="collapse" id="Data-page">
                   <li><a href="app_data_upload.html">上传数据</a></li>
                   <li><a href="app_data_read.html">读取数据</a></li>
+                </ul>
+              </li>
+              <li class="another-level">
+                <a class="" data-bs-toggle="collapse" href="#Tags-page" aria-expanded="false">
+                  标签
+                </a>
+                <ul class="collapse" id="Tags-page">
+                  <li><a href="app_tags_update.html">标签录入</a></li>
+                  <li><a href="app_tags_settings.html">标签设置</a></li>
                 </ul>
               </li>
               <li class="another-level">
@@ -190,7 +207,7 @@
 
                         </div>
                       </div>
-                      
+
                     </div>
                   </li>
 
@@ -214,7 +231,8 @@
                             </div>
                             <div class="text-center mt-2">
                               <h6 class="mb-0"><span class="js-user-name">Admin</span></h6>
-                              <p class="f-s-12 mb-0 text-secondary"><span class="js-user-email">info@dceducation.com.cn</span></p>
+                              <p class="f-s-12 mb-0 text-secondary"><span
+                                  class="js-user-email">info@dceducation.com.cn</span></p>
                             </div>
                           </li>
 
@@ -721,9 +739,9 @@
                 <div class="row d-flex flex-wrap gap-2 col-lg-6 col-12">
                   <label class="form-label">是否有目标院校？</label>
 
-                    <div class="col-12">
-                      <select class="select-basic-multiple-four w-100" name="states[]" multiple="multiple"
-                        id="select_bachelor_to_school" disabled>
+                  <div class="col-12">
+                    <select class="select-basic-multiple-four w-100" name="states[]" multiple="multiple"
+                      id="select_bachelor_to_school" disabled>
                       <option value="AL">Alabama</option>
                       <option value="WY">Wyoming</option>
                       <option value="WY">Coming</option>
@@ -775,9 +793,9 @@
                 <div class="row d-flex flex-wrap gap-2 col-lg-6 col-12">
                   <label class="form-label">是否有目标专业？</label>
 
-                    <div class="col-12">
-                      <select class="select-basic-multiple-four w-100" name="states[]" multiple="multiple"
-                        id="select_bachelor_to_major" disabled>
+                  <div class="col-12">
+                    <select class="select-basic-multiple-four w-100" name="states[]" multiple="multiple"
+                      id="select_bachelor_to_major" disabled>
                       <option value="AL">Alabama</option>
                       <option value="WY">Wyoming</option>
                       <option value="WY">Coming</option>
@@ -1559,40 +1577,40 @@
       </div>
     </div>
   </div>
-    <!-- modal master end -->
+  <!-- modal master end -->
 
 
-    <!-- latest jquery-->
-    <script src="assets/js/jquery-3.6.3.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-    <!-- Simple bar js-->
-    <script src="assets/vendor/simplebar/simplebar.js"></script>
+  <!-- latest jquery-->
+  <script src="assets/js/jquery-3.6.3.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <!-- Simple bar js-->
+  <script src="assets/vendor/simplebar/simplebar.js"></script>
 
-    <!-- phosphor js -->
-    <script src="assets/vendor/phosphor/phosphor.js"></script>
+  <!-- phosphor js -->
+  <script src="assets/vendor/phosphor/phosphor.js"></script>
 
-    <!-- Bootstrap js-->
-    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-    <!--cleave js  -->
-    <script src="assets/vendor/cleavejs/cleave.min.js"></script>
-    <!-- select2 -->
-    <script src="assets/vendor/select/select2.min.js"></script>
-    <!-- js -->
-    <script src="assets/js/input_masks.js"></script>
+  <!-- Bootstrap js-->
+  <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <!--cleave js  -->
+  <script src="assets/vendor/cleavejs/cleave.min.js"></script>
+  <!-- select2 -->
+  <script src="assets/vendor/select/select2.min.js"></script>
+  <!-- js -->
+  <script src="assets/js/input_masks.js"></script>
 
-    <!-- js
+  <!-- js
     <script src="assets/js/select.js"></script> -->
 
-    <script src="assets/vendor/jstree/jstree.min.js"></script>
-    <!-- tree-view-custom-js  -->
-    <script src="assets/js/tree-view.js"></script>
+  <script src="assets/vendor/jstree/jstree.min.js"></script>
+  <!-- tree-view-custom-js  -->
+  <script src="assets/js/tree-view.js"></script>
 
-    <!-- App js-->
-    <script src="assets/js/script.js"></script>
+  <!-- App js-->
+  <script src="assets/js/script.js"></script>
 
-    <script type="module" src="assets/js/dashboard_analysis.js"></script>
+  <script type="module" src="assets/js/dashboard_analysis.js"></script>
 
-    <script src="assets/js/HTTPRequest.js"></script>
+  <script src="assets/js/HTTPRequest.js"></script>
 
 </body>
 
